@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Webprog 2 2023</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Import Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-        <!-- Import Bootstrap JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css?v=1" />
-        <script src="main.js?v=1"></script>
+        <title>Weekly Timetable | Vanilla JS</title>
+        <!-- Bootstrap CSS (styling only, no Bootstrap JS is needed) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="main.js"></script>
     </head>
     <body>
-        <div class="row main-container">
-            <div class="col main-menu">
+        <div class="layout">
+            <nav class="main-menu">
                 <button data-app="Calendar" class="btn btn-primary menu-btn">Calendar</button>
-            </div>
-            <main id="app" class="col-8 app"></main>
+            </nav>
+            <main id="app" class="app"></main>
         </div>
     </body>
 </html>

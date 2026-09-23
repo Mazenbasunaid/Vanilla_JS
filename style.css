@@ -13,89 +13,77 @@ html, body {
     background-color: rgb(209, 209, 209);
 }
 
-body {
+/* Page layout: fixed-width menu on the left, app fills the rest */
+
+.layout {
     display: flex;
-    flex-direction: column;
-}
-
-.main-container {
-    flex: 1;
-}
-
-.status-bar {
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid var(--border-color);
-}
-
-.status-bar > div {
-    margin-left: 10px;
-}
-
-.row {
-    width: 100%;
+    min-height: 100%;
 }
 
 .main-menu {
+    flex: 0 0 180px;
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 10px 0;
 }
 
 .menu-btn {
     display: block;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
     width: 80%;
 }
 
-/* Calender app */
+.app {
+    flex: 1;
+    min-width: 0;          /* lets the app shrink so the table can scroll instead of pushing the menu away */
+    padding: 0 16px 16px;
+}
+
+/* Calendar app */
+
+.timetable-toolbar {
+    position: sticky;      /* stays visible when scrolling, but takes up its own space instead of covering the table */
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0;
+    background-color: rgb(209, 209, 209);
+}
 
 .timetable-container {
-    position: relative;
+    overflow-x: auto;
 }
 
-.btn-group {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
+.timetable {
+    table-layout: fixed;
+    min-width: 1000px;
+    background-color: white;
+    border-collapse: collapse;
+    margin-bottom: 0;
 }
 
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid #dee2e6;
-    width: 100px;
-    height: 100px;
+.timetable th,
+.timetable td {
+    border: 2px solid black;
+    height: 80px;
     text-align: center;
     vertical-align: middle;
 }
 
-.time-input-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.timetable .time-col {
+    width: 130px;
 }
 
-input[type="time"] {
-    width: 100%;
-    padding-top: 5rem;
+.time-slot {
+    cursor: text;
+    word-break: break-word;
 }
 
-.table {
-  border-collapse: collapse;
+.time-slot.active {
+    outline: 3px solid #0d6efd;
+    outline-offset: -3px;
 }
-
-.table th, .table td {
-  border: 3px solid black;
-}
-
-.table tr > :first-child {
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
-  }
