@@ -1,8 +1,8 @@
 // Import the Application class from Application.js
 import Application from "../Application.js";
 
-// Define the Calender class extending the Application class
-export default class Calender extends Application {
+// Define the Calendar class extending the Application class
+export default class Calendar extends Application {
     // Define class properties: days and periods
     static days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     static periods = 7;
@@ -13,7 +13,7 @@ export default class Calender extends Application {
     selectedColor = null; // The currently selected color for time slots
     lastClickedTimeSlot = null; // The last clicked time slot element
 
-    // Constructor for the Calender class
+    // Constructor for the Calendar class
     constructor(target) {
         super(target); // Call the parent (Application) class constructor
         this.initTimetable(); // Initialize the timetable
@@ -44,10 +44,10 @@ export default class Calender extends Application {
         const headerRow = document.createElement('tr');
     
         // Loop through days and create a header cell for each day
-        for (let day = 0; day < Calender.days.length + 1; day++) {
+        for (let day = 0; day < Calendar.days.length + 1; day++) {
           const headerElem = document.createElement('th');
           // Set the header cell's text content based on the current day
-          headerElem.textContent = day === 0 ? "Timetable" : Calender.days[day - 1];
+          headerElem.textContent = day === 0 ? "Timetable" : Calendar.days[day - 1];
           // Add the header cell to the header row
           headerRow.appendChild(headerElem);
         }
@@ -60,11 +60,11 @@ export default class Calender extends Application {
         this.tbody = document.createElement('tbody');
 
         // Loop through periods and create a table row for each period
-        for (let period = 1; period <= Calender.periods; period++) {
+        for (let period = 1; period <= Calendar.periods; period++) {
             const rowElem = document.createElement('tr');
 
             // Loop through days and create a cell for each day
-            for (let day = 0; day < Calender.days.length + 1; day++) {
+            for (let day = 0; day < Calendar.days.length + 1; day++) {
                 if (day === 0) {
                     // If it's the first cell, create a time input for the period
                     const periodElemWrapper = document.createElement('div');
@@ -176,7 +176,7 @@ initButtons() {
     addRow() {
         // ... Create and add a new row with time slots
         const rowElem = document.createElement('tr');
-        for (let day = 0; day < Calender.days.length + 1; day++) {
+        for (let day = 0; day < Calendar.days.length + 1; day++) {
             if (day === 0) {
                 const periodElemWrapper = document.createElement('div');
                 periodElemWrapper.className = 'time-input-wrapper';
